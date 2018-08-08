@@ -27,7 +27,7 @@ isPresent()
 }
 
 # concat sonar-scanner execute extended command
-SONAR_SCANNER_CMD="sonar-scanner -x"
+SONAR_SCANNER_CMD="sonar-scanner -X"
 
 # Required variables: $SONAR_HOST_URL
 if isUndefined ${SONAR_HOST_URL}; then
