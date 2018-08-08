@@ -2,27 +2,8 @@
 Gitlab docker container to execute sonar-scanner analysis (Java, Apache Maven based applications) 
 
 ## Usage
-1) Create/Update `.gitlab-ci.yml`
 
-~~~yaml
-stages:
-- quality
-
-sonarqube:
-  stage: quality
-  image: forcelate/gitlab-sonar-scanner-java-maven
-  variables:
-    SONAR_HOST_URL: http://sonarqube.ipaddress
-    SONAR_LOGIN: sonarqube_login
-    SONAR_PASSWORD: sonarqube_password
-  script:
-  # know issues in java, apache maven based application
-  # apk add --no-cache procps
-  - mvn clean install 
-  - sonar-scanner-ext
-~~~
-
-2) Create/Update `sonar-project.properties`
+1) Create/Update `sonar-project.properties`
 
 ```
 # Required metadata
@@ -56,12 +37,33 @@ sonar.exclusions=src/main/java/com/forcelate/Application.java,\
   src/main/java/com/forcelate/resource/InfoResource.java
 ```
 
+2) Create/Update `.gitlab-ci.yml`
+
+~~~yaml
+stages:
+- quality
+
+sonarqube:
+  stage: quality
+  image: forcelate/gitlab-sonar-scanner-java-maven
+  variables:
+    SONAR_HOST_URL: http://sonarqube.ipaddress
+    SONAR_LOGIN: sonarqube_login
+    SONAR_PASSWORD: sonarqube_password
+  script:
+  # know issues in java, apache maven based application
+  # apk add --no-cache procps
+  - mvn clean install 
+  - sonar-scanner-ext
+~~~
+
 3) Install [Sonar GitLab Plugin](https://github.com/gabrie-allaigre/sonar-gitlab-plugin) in your SonarQube 
 <p align="center">
-	<img src="https://github.com/forcelate/gitlab-sonar-scanner-java-maven/img/sonar-gitlab-plugin-installation.png?raw=true" alt=""/>
+	<img src="https://github.com/forcelate/gitlab-sonar-scanner-java-maven/blob/master/img/sonar-gitlab-plugin-installation.png?raw=true" alt=""/>
 </p>
 
-4) to be continued...
+4) Create SonarQube user
+5) Grant **Execute Analysis** permission on SonarQube project
 
 ### Known issues
 issue: maven-surefire-plugin issue: [JIRA-1422](https://issues.apache.org/jira/browse/SUREFIRE-1422)  
