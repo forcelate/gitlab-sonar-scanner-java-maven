@@ -1,4 +1,6 @@
 # gitlab-sonar-scanner-java-maven
+### NO LONGER SUPPORTED
+
 Gitlab docker container to execute sonar-scanner analysis (Java, Apache Maven based applications) 
 
 ## Usage
