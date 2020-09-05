@@ -32,11 +32,11 @@ sonar.jacoco.reportPaths=target/jacoco.exec
 sonar.sourceEncoding=UTF-8
 
 # Exclude
-sonar.exclusions=src/main/java/com/forcelate/Application.java,\
-  src/main/java/com/forcelate/configuration/**/*,\
-  src/main/java/com/forcelate/domain/**/*,\
-  src/main/java/com/forcelate/properties/**/*,\
-  src/main/java/com/forcelate/resource/InfoResource.java
+sonar.exclusions=src/main/java/com/tech1/Application.java,\
+  src/main/java/com/tech1/configuration/**/*,\
+  src/main/java/com/tech1/domain/**/*,\
+  src/main/java/com/tech1/properties/**/*,\
+  src/main/java/com/tech1/resource/InfoResource.java
 ```
 
 2) Create/Update `.gitlab-ci.yml`
@@ -47,7 +47,7 @@ stages:
 
 sonarqube:
   stage: quality
-  image: forcelate/gitlab-sonar-scanner-java-maven
+  image: tech1/gitlab-sonar-scanner-java-maven
   variables:
     SONAR_HOST_URL: http://sonarqube.ipaddress
     SONAR_LOGIN: sonarqube_login
@@ -61,7 +61,7 @@ sonarqube:
 
 3) Install [Sonar GitLab Plugin](https://github.com/gabrie-allaigre/sonar-gitlab-plugin) in your SonarQube 
 <p align="center">
-	<img src="https://github.com/forcelate/gitlab-sonar-scanner-java-maven/blob/master/img/sonar-gitlab-plugin-installation.png?raw=true" alt=""/>
+	<img src="https://github.com/tech1-io/gitlab-sonar-scanner-java-maven/blob/master/img/sonar-gitlab-plugin-installation.png?raw=true" alt=""/>
 </p>
 
 4) Create SonarQube user
@@ -72,7 +72,7 @@ issue: maven-surefire-plugin issue: [JIRA-1422](https://issues.apache.org/jira/b
 solution: install `procps` or downgrade to version: 2.20
 
 ## Any ideas?
-If you have any ideas, questions or suggestions, please don't hesitate to contact us at <info@forcelate.com> or submit new [Github issue](https://github.com/forcelate/gitlab-sonar-scanner-java-maven/issues/new).
+If you have any ideas, questions or suggestions, please don't hesitate to submit new [Github issue](https://github.com/tech1-io/gitlab-sonar-scanner-java-maven/issues/new).
 
 ## License (GNU-GPLv3)
-Copyright (c) 2018 Forcelate <info@forcelate.com>
+Copyright (c) 2018

@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker run -it --rm --name gitlab-sonar-scanner-java-maven forcelate/gitlab-sonar-scanner-java-maven:dev
+docker run -it --rm --name gitlab-sonar-scanner-java-maven tech1/gitlab-sonar-scanner-java-maven:dev
